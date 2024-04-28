@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
+        int suma = 0;
     System.out.println("--------- Witamy w kreatorze zestawu Komputerowego --------");
     System.out.println();
         boolean exit=false;
@@ -29,44 +30,66 @@ Wybor = input.nextLine();
 
 
 String PlytaWybor;
+int PlytaKoszt = 0;
 String ZasilaczWybor;
+int ZasilaczKoszt = 0;
 String ProcesorWybor;
+int ProcesorKoszt = 0;
 String KartaWybor;
-String ObodowaWybor;
+int KartaKoszt = 0;
+String ObodowaWybor = "0";
+int ObodowaKoszt = 0;
 
 
-        switch(Wybor){
+            switch(Wybor){
             case "Obudowa":
             case "1":
                 System.out.println("Wybierz Obudowe: ");
 
-                    Obudowy NZXT = new Obudowy();
-                    System.out.print("1. ");
-                    NZXT.Producent = "NZXT";
-                    NZXT.Nazwa = "H5 Flow";
-                    NZXT.Koszt = 389;
-                    NZXT.Standard = "ATX";
-                    NZXT.info();
+                        Obudowy NZXT = new Obudowy();
+                        System.out.print("1. ");
+                        NZXT.Producent = "NZXT";
+                        NZXT.Nazwa = "H5 Flow";
+                        NZXT.Koszt = 389;
+                        NZXT.Standard = "ATX";
+                        NZXT.info();
 
-                    System.out.print("2. ");
-                    Obudowy MSI = new Obudowy();
-                    MSI.Producent = "MSI";
-                    MSI.Nazwa = "Mag Forge 112R";
-                    MSI.Koszt = 299;
-                    MSI.Standard = "microATX";
-                    MSI.info();
+                        System.out.print("2. ");
+                        Obudowy MSI = new Obudowy();
+                        MSI.Producent = "MSI";
+                        MSI.Nazwa = "Mag Forge 112R";
+                        MSI.Koszt = 299;
+                        MSI.Standard = "microATX";
+                        MSI.info();
 
-                    System.out.print("3. ");
-                    Obudowy ENDORFY = new Obudowy();
-                    ENDORFY.Producent = "ENDORFY";
-                    ENDORFY.Nazwa = "Signum 300 ARGB ";
-                    ENDORFY.Koszt = 369;
-                    ENDORFY.Standard = "ITX";
-                    ENDORFY.info();
+                        System.out.print("3. ");
+                        Obudowy ENDORFY = new Obudowy();
+                        ENDORFY.Producent = "ENDORFY";
+                        ENDORFY.Nazwa = "Signum 300 ARGB ";
+                        ENDORFY.Koszt = 369;
+                        ENDORFY.Standard = "ITX";
+                        ENDORFY.info();
 
                     Scanner input2 = new Scanner(System.in);
                     ObodowaWybor = input.nextLine();
 
+                switch (ObodowaWybor) {
+                    case "NZXT":
+                    case "1":
+                        ObodowaKoszt = 389;
+                        break;
+                    case "MSI":
+                    case "2":
+                        ObodowaKoszt = 299;
+                        break;
+                    case "ENDORFY":
+                    case "3":
+                        ObodowaKoszt = 369;
+                        break;
+
+                }
+                suma = suma + ObodowaKoszt;
+                System.out.println("Wartosc zestawu to: " + suma);
                 break;
 
             case "Plyta Glowna":
@@ -82,7 +105,7 @@ String ObodowaWybor;
 
                 System.out.print("2. ");
                 PlytaGlowna ASUS = new PlytaGlowna();
-                ASUS.Producent = "GIGABYTE";
+                ASUS.Producent = "ASUS";
                 ASUS.Nazwa = "Z790 UD AX ";
                 ASUS.Koszt = 532;
                 ASUS.Standard = "ATX";
@@ -98,6 +121,24 @@ String ObodowaWybor;
 
                 Scanner input3 = new Scanner(System.in);
                 PlytaWybor = input.nextLine();
+
+
+                switch (PlytaWybor) {
+                    case "GIGABYTE":
+                    case "1":
+                        PlytaKoszt = 895;
+                        break;
+                    case "ASUS":
+                    case "2":
+                        PlytaKoszt = 532;
+                        break;
+                    case "ASROCK":
+                    case "3":
+                        PlytaKoszt = 679;
+                        break;
+                }
+                suma = suma + PlytaKoszt;
+                System.out.println("Wartosc zestawu to: " + suma);
                 break;
 
             case "Zasilacz":
@@ -130,7 +171,26 @@ String ObodowaWybor;
 
             Scanner input4 = new Scanner(System.in);
             ZasilaczWybor = input.nextLine();
+
+
+                switch (ZasilaczWybor) {
+                    case "CORSAIR":
+                    case "1":
+                        ZasilaczKoszt = 299;
+                        break;
+                    case "ADATA":
+                    case "2":
+                        ZasilaczKoszt = 574;
+                        break;
+                    case "CHIEFTEC":
+                    case "3":
+                        ZasilaczKoszt = 440;
+                        break;
+                }
+                suma = suma + ZasilaczKoszt;
+                System.out.println("Wartosc zestawu to: " + suma);
                 break;
+
 
             case "Procesor":
             case "4":
@@ -159,7 +219,23 @@ String ObodowaWybor;
 
                 Scanner input5 = new Scanner(System.in);
                 ProcesorWybor = input.nextLine();
+
+                switch (ProcesorWybor) {
+                    case "Intel":
+                    case "1":
+                        ProcesorKoszt = 1116;
+                        break;
+                    case "AMD":
+                    case "2":
+                        ProcesorKoszt = 1649;
+                        break;
+
+                }
+                suma = suma + ProcesorKoszt;
+                System.out.println("Wartosc zestawu to: " + suma);
                 break;
+
+
 
             case "Karta Graficzna":
             case "5":
@@ -189,11 +265,23 @@ String ObodowaWybor;
 
             Scanner input6 = new Scanner(System.in);
             KartaWybor = input.nextLine();
+                switch (KartaWybor) {
+                    case "PALIT":
+                    case "1":
+                        KartaKoszt = 1649;
+                        break;
+                    case "INNO3D":
+                    case "2":
+                        KartaKoszt = 1799;
+                        break;
+
+                }
+                suma = suma + KartaKoszt;
+                System.out.println("Wartosc zestawu to: " + suma);
                 break;
 
 
-
-            case "6":
+                case "6":
                 exit=true;
                 break;
 
@@ -201,8 +289,6 @@ String ObodowaWybor;
 
 
         }while(!exit);
-
-
 
     }
 
