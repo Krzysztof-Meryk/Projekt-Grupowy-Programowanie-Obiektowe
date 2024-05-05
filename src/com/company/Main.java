@@ -4,11 +4,26 @@ package com.company;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Main {
+
+
+    public static int sum = 0;
+
+    public void wypiszSume(int a) {
+        final int Koszty_Dostawy = 50;
+        this.sum = this.sum + a;
+        System.out.println("Wartosc zestawu to: " + this.sum + " zł + Koszty dostawy "+ Koszty_Dostawy +" zł");
+    }
+
+    public static void wyczysc_konsole() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) throws IOException {
 
-
-        int suma = 0;
     System.out.println("--------- Witamy w kreatorze zestawu Komputerowego --------");
     System.out.println();
         boolean exit=false;
@@ -28,6 +43,7 @@ Scanner input = new Scanner(System.in);
 String Wybor;
 Wybor = input.nextLine();
 
+Main main = new Main();
 
 String PlytaWybor;
 int PlytaKoszt = 0;
@@ -44,6 +60,7 @@ int ObodowaKoszt = 0;
             switch(Wybor){
             case "Obudowa":
             case "1":
+                wyczysc_konsole();
                 System.out.println("Wybierz Obudowe: ");
 
                         Obudowy NZXT = new Obudowy();
@@ -52,7 +69,7 @@ int ObodowaKoszt = 0;
                         NZXT.Nazwa = "H5 Flow";
                         NZXT.Koszt = 389;
                         NZXT.Standard = "ATX";
-                        NZXT.info();
+                        NZXT.infoObudowa();
 
                         System.out.print("2. ");
                         Obudowy MSI = new Obudowy();
@@ -60,7 +77,7 @@ int ObodowaKoszt = 0;
                         MSI.Nazwa = "Mag Forge 112R";
                         MSI.Koszt = 299;
                         MSI.Standard = "microATX";
-                        MSI.info();
+                        MSI.infoObudowa();
 
                         System.out.print("3. ");
                         Obudowy ENDORFY = new Obudowy();
@@ -68,7 +85,7 @@ int ObodowaKoszt = 0;
                         ENDORFY.Nazwa = "Signum 300 ARGB ";
                         ENDORFY.Koszt = 369;
                         ENDORFY.Standard = "ITX";
-                        ENDORFY.info();
+                        ENDORFY.infoObudowa();
 
                     Scanner input2 = new Scanner(System.in);
                     ObodowaWybor = input.nextLine();
@@ -88,12 +105,13 @@ int ObodowaKoszt = 0;
                         break;
 
                 }
-                suma = suma + ObodowaKoszt;
-                System.out.println("Wartosc zestawu to: " + suma);
+                wyczysc_konsole();
+                main.wypiszSume(ObodowaKoszt);
                 break;
 
             case "Plyta Glowna":
             case "2":
+                wyczysc_konsole();
                 System.out.println("Wybierz Płyte Główną: ");
                 System.out.print("1. ");
                 PlytaGlowna GIGABYTE = new PlytaGlowna();
@@ -101,7 +119,7 @@ int ObodowaKoszt = 0;
                 GIGABYTE.Nazwa = "Z790 UD AX ";
                 GIGABYTE.Koszt = 895;
                 GIGABYTE.Standard = "ATX";
-                GIGABYTE.info();
+                GIGABYTE.infoPlyta();
 
                 System.out.print("2. ");
                 PlytaGlowna ASUS = new PlytaGlowna();
@@ -109,7 +127,7 @@ int ObodowaKoszt = 0;
                 ASUS.Nazwa = "Z790 UD AX ";
                 ASUS.Koszt = 532;
                 ASUS.Standard = "ATX";
-                ASUS.info();
+                ASUS.infoPlyta();
 
                 System.out.print("3. ");
                 PlytaGlowna ASROCK = new PlytaGlowna();
@@ -117,7 +135,7 @@ int ObodowaKoszt = 0;
                 ASROCK.Nazwa = "B760M";
                 ASROCK.Koszt = 679;
                 ASROCK.Standard = "microATX ";
-                ASROCK.info();
+                ASROCK.infoPlyta();
 
                 Scanner input3 = new Scanner(System.in);
                 PlytaWybor = input.nextLine();
@@ -137,13 +155,13 @@ int ObodowaKoszt = 0;
                         PlytaKoszt = 679;
                         break;
                 }
-                suma = suma + PlytaKoszt;
-                System.out.println("Wartosc zestawu to: " + suma);
+                wyczysc_konsole();
+                main.wypiszSume(PlytaKoszt);
                 break;
 
             case "Zasilacz":
             case "3":
-
+                wyczysc_konsole();
                 System.out.println("Wybierz Zasilacz: ");
                 System.out.print("1. ");
                 Zasilacz CORSAIR = new Zasilacz();
@@ -151,7 +169,7 @@ int ObodowaKoszt = 0;
                 CORSAIR.Nazwa = "CV650";
                 CORSAIR.Koszt = 299;
                 CORSAIR.Moc = 650 ;
-                CORSAIR.info();
+                CORSAIR.infoZasilacz();
 
                 System.out.print("2. ");
                 Zasilacz ADATA = new Zasilacz();
@@ -159,7 +177,7 @@ int ObodowaKoszt = 0;
                 ADATA.Nazwa = "XPG Core Reactor II";
                 ADATA.Koszt = 574;
                 ADATA.Moc = 850 ;
-                ADATA.info();
+                ADATA.infoZasilacz();
 
                 System.out.print("3. ");
                 Zasilacz CHIEFTEC = new Zasilacz();
@@ -167,7 +185,7 @@ int ObodowaKoszt = 0;
                 CHIEFTEC.Nazwa = "GPX-750FC";
                 CHIEFTEC.Koszt = 440;
                 CHIEFTEC.Moc = 750 ;
-                CHIEFTEC.info();
+                CHIEFTEC.infoZasilacz();
 
             Scanner input4 = new Scanner(System.in);
             ZasilaczWybor = input.nextLine();
@@ -187,13 +205,14 @@ int ObodowaKoszt = 0;
                         ZasilaczKoszt = 440;
                         break;
                 }
-                suma = suma + ZasilaczKoszt;
-                System.out.println("Wartosc zestawu to: " + suma);
+                wyczysc_konsole();
+                main.wypiszSume(ZasilaczKoszt);
                 break;
 
 
             case "Procesor":
             case "4":
+                wyczysc_konsole();
                 System.out.println("Wybierz Procesor: ");
                 System.out.print("1. ");
                 Procesor Intel = new Procesor();
@@ -204,7 +223,7 @@ int ObodowaKoszt = 0;
                 Intel.Watki = 20;
                 Intel.Taktowanie = 2.6;
                 Intel.TypG = "Socket 1700";
-                Intel.info();
+                Intel.infoProcesor();
 
                 System.out.print("2. ");
                 Procesor AMD = new Procesor();
@@ -215,7 +234,7 @@ int ObodowaKoszt = 0;
                 AMD.Watki = 16;
                 AMD.Taktowanie = 4.2;
                 AMD.TypG = "Socket AM5";
-                AMD.info();
+                AMD.infoProcesor();
 
                 Scanner input5 = new Scanner(System.in);
                 ProcesorWybor = input.nextLine();
@@ -231,15 +250,15 @@ int ObodowaKoszt = 0;
                         break;
 
                 }
-                suma = suma + ProcesorKoszt;
-                System.out.println("Wartosc zestawu to: " + suma);
+                wyczysc_konsole();
+                main.wypiszSume(ProcesorKoszt);
                 break;
 
 
 
             case "Karta Graficzna":
             case "5":
-
+                wyczysc_konsole();
                 System.out.println("Wybierz Karte Graficzna: ");
                 System.out.print("1. ");
                 KartaGraficzna PALIT = new KartaGraficzna();
@@ -249,7 +268,7 @@ int ObodowaKoszt = 0;
                 PALIT.TypZ = "PCI Express 4.0 x16 ";
                 PALIT.Chlodzenie = "Aktywne";
                 PALIT.RAM = 12288;
-                PALIT.info();
+                PALIT.infoKarta();
 
 
                 System.out.print("2. ");
@@ -260,7 +279,7 @@ int ObodowaKoszt = 0;
                 INNO3D.TypZ = "PCI Express 4.0 x8";
                 INNO3D.Chlodzenie = "Aktywne";
                 INNO3D.RAM = 8192;
-                INNO3D.info();
+                INNO3D.infoKarta();
 
 
             Scanner input6 = new Scanner(System.in);
@@ -276,8 +295,8 @@ int ObodowaKoszt = 0;
                         break;
 
                 }
-                suma = suma + KartaKoszt;
-                System.out.println("Wartosc zestawu to: " + suma);
+                wyczysc_konsole();
+                main.wypiszSume(KartaKoszt);
                 break;
 
 

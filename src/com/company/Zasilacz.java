@@ -1,11 +1,11 @@
 package com.company;
 
 public class Zasilacz {
-    String Producent = "Default";
+    String Producent;
     String Nazwa;
     int Koszt;
     int Moc;
-    public void info() {
+    public void infoZasilacz() {
         System.out.println("Producent: " + Producent + ", Nazwa: " + Nazwa + ", Cena: " + Koszt + ", Moc: " + Moc);
     }
 }

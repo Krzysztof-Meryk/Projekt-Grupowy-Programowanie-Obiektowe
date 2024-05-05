@@ -1,15 +1,12 @@
 package com.company;
 
-import java.util.Scanner;
 
 public class Obudowy {
-    String Producent = "Default";
+    String Producent ;
     String Nazwa;
     int Koszt;
     String Standard;
-    public void info() {
+    public void infoObudowa() {
         System.out.println("Producent: " + Producent + ", Nazwa: " + Nazwa + ", Cena: " + Koszt + ", Standard: " + Standard);
-
-
     }
 }

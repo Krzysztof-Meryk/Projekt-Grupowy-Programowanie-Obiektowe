@@ -2,11 +2,11 @@ package com.company;
 
 public class PlytaGlowna {
 
-    String Producent = "Default";
+    String Producent;
     String Nazwa;
     int Koszt;
     String Standard;
-    public void info() {
+    public void infoPlyta() {
         System.out.println("Producent: " + Producent + ", Nazwa: " + Nazwa + ", Cena: " + Koszt + ", Standard: " + Standard);
 
     }
