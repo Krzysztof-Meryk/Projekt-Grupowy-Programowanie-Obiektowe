@@ -15,6 +15,7 @@ public class Main {
         System.out.println();
         boolean exit = false;
         int Cena = 0;
+        final int dostawa = 50;
 
         do {
             System.out.println("Który z podzespołów chcesz wybrać ?");
@@ -55,7 +56,7 @@ public class Main {
                 default:
                     System.out.println("Niepoprawny wybór. Spróbuj ponownie.");
             }
-            System.out.println("Łączna cena wybranych produktów: " + Cena + " zł");
+            System.out.println("Łączna cena wybranych produktów: " + Cena + " zł + koszty dostawy " + dostawa + " zł");
         } while (!exit);
     }
 }
