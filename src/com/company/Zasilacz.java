@@ -3,18 +3,14 @@ package com.company;
 import java.util.Scanner;
 
 public class Zasilacz extends PodzespolyKomputerowe {
-    private int moc;
-
-    public Zasilacz(String producent, String nazwa, int koszt, int moc) {
+    public Zasilacz(String producent, String nazwa, int koszt) {
         super(producent, nazwa, koszt);
-        this.moc = moc;
     }
 
     public static int wybierzZasilacz() {
-        System.out.println("Wybierz obudowę:");
-        System.out.println("1. CORSAIR, CV650, 299, 650");
-        System.out.println("2. ADATA, XPG Core Reactor II, 574, 850");
-        System.out.println("3. CHIEFTEC, GPX-750FC, 440, 750");
+        System.out.println("Wybierz Zasilacz:");
+        System.out.println("1. SilentiumPC Vero L3 600W, 219 zł");
+        System.out.println("2. Corsair RM850x, 599 zł");
 
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
@@ -22,28 +18,16 @@ public class Zasilacz extends PodzespolyKomputerowe {
 
         switch (wybor) {
             case 1:
-                cena = 299;
-                Zasilacz ZasilaczA = new Zasilacz("CORSAIR", "CV650", 299, 650);
+                cena = 219;
+                Zasilacz zasilaczA = new Zasilacz("SilentiumPC", "Vero L3 600W", 219);
                 Main.wyczysc_konsole();
-                System.out.println("Wybrano Zasilacz : " + ZasilaczA.getProducent() + ", " +
-                        ZasilaczA.getNazwa() + ", " + ZasilaczA.getKoszt() + " zł, " +
-                        ZasilaczA.getMoc());
+                System.out.println("Wybrano Zasilacz: " + zasilaczA);
                 break;
             case 2:
-                cena = 574;
-                Zasilacz ZasilaczB = new Zasilacz("ADATA", "XPG Core Reactor II", 574, 850);
+                cena = 599;
+                Zasilacz zasilaczB = new Zasilacz("Corsair", "RM850x", 599);
                 Main.wyczysc_konsole();
-                System.out.println("Wybrano Zasilacz : " + ZasilaczB.getProducent() + ", " +
-                        ZasilaczB.getNazwa() + ", " + ZasilaczB.getKoszt() + " zł, " +
-                        ZasilaczB.getMoc());
-                break;
-            case 3:
-                cena = 440;
-                Zasilacz ZasilaczC = new Zasilacz("CHIEFTEC", "GPX-750FC", 440, 750);
-                Main.wyczysc_konsole();
-                System.out.println("Wybrano Zasilacz : " + ZasilaczC.getProducent() + ", " +
-                        ZasilaczC.getNazwa() + ", " + ZasilaczC.getKoszt() + " zł, " +
-                        ZasilaczC.getMoc());
+                System.out.println("Wybrano Zasilacz: " + zasilaczB);
                 break;
             default:
                 System.out.println("Niepoprawny wybór Zasilacza.");
@@ -51,8 +35,8 @@ public class Zasilacz extends PodzespolyKomputerowe {
         return cena;
     }
 
-    public int getMoc() {
-        return moc;
+    @Override
+    public String toString() {
+        return getProducent() + ", " + getNazwa() + ", " + getKoszt() + " zł";
     }
-
 }
